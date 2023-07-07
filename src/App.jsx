@@ -28,7 +28,13 @@ function App() {
   }
 
   function handleClearList() {
-    setItems([])
+    if (!items.length) {
+      return (
+        <p className="stats"><em>Start adding some items to your packing list 🚀</em></p>
+      )
+    }
+    const confirmed = window.confirm("Are you sure?")
+    if (confirmed) setItems([])
   }
 
   return (
